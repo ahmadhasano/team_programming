@@ -2,13 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Deret {
+public class DeretAngka {
     public static void main(String[] args) {
         // Initiate scanner
         Scanner input = new Scanner(System.in);
 
-        /* User data input */
-        // User name
+        /* Input Nama */
         String userName = "";
         boolean expectInput = true;
         while (expectInput) {
@@ -18,12 +17,14 @@ public class Deret {
                 System.out.println("Harap masukkan nama Anda.\n");
             } else if (userName.length() > 25) {
                 System.out.println("Nama maksimal 25 karakter.\n");
+            } else if(!userName.matches("[a-zA-Z]+")) {
+                System.out.println("Nama hanya boleh huruf.\n");
             } else {
                 expectInput = false;
             }
         }
 
-        // NIM
+        // Input NIM
         String nim = "";
         expectInput = true;
         while (expectInput) {
@@ -31,17 +32,23 @@ public class Deret {
             nim = input.nextLine();
             if (nim.length() != 10) {
                 System.out.println("Harap masukkan NIM 10 karakter.\n");
+            } else if (!nim.matches("[0-9]+")) {
+                System.out.println("NIM hanya boleh angka.\n");
             } else {
                 expectInput = false;
             }
         }
 
-        // Greeting
+        // Registrasi Sukses
         System.out.println();
         System.out.println("@".repeat(100));
         System.out.println("\nRegistrasi sukses...");
         System.out.printf("Selamat datang %s [NIM: %s].. ^^v%n", userName, nim);
+
+
         System.out.println("Mari belajar macam-macam deret bilangan..\n");
+        System.out.println("@".repeat(100));
+        System.out.println("");
 
         /* Calculation */
         while (true) {
